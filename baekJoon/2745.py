@@ -8,11 +8,9 @@ for i, j in zip(range(ord('A'), ord('Z') + 1), range(10, 37)):
 N, B = input().split()
 B = int(B)
 
-if ('A' <= N <= 'Z'):
-    for i in range(len(N) - 1, -1, -1):
-        r += int(Al[N[len(N)-1 - i]]) * (B ** i)
-
-else:
-    for i in range(len(N) - 1, -1, -1):
-        r += int(N[len(N)-1 - i]) * (B ** i)
+for i in range(len(N)):
+    if ('A' <= N[i] <= 'Z'):
+        r += int(Al[N[i]]) * (B ** (len(N) - 1 - i))
+    else:
+        r += int(N[i]) * (B ** (len(N) - 1 - i))
 print(r)
