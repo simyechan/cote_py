@@ -98,3 +98,108 @@
 #       cnt += 1
 
 # print(cnt)
+
+
+
+# 부분집합 구하기
+
+# n = int(input())
+# graph = [0] * (n+1)
+
+# def dfs(x):
+#   if x == n+1:
+#     for i in range(1, n+1):
+#       if graph[i] == 1:
+#         print(i, end=' ')
+#     print()
+#     return
+#   else:
+#     graph[x] = 1
+#     dfs(x+1)
+#     graph[x] = 0
+#     dfs(x+1)
+
+# dfs(1)
+
+
+
+# 합이 같은 부분집합
+
+# n = int(input())
+# ls = []
+# cnt = 0
+# graph = [0] * (n)
+# for _ in range(n):
+#   ls.append(int(input()))
+
+# def dfs(x):
+#   s_o = s_z = 0
+#   global cnt
+#   if x == n:
+#     for i in range(n):
+#       if graph[i] == 1:
+#         s_o += ls[i]
+#       else:
+#         s_z += ls[i]
+#     if s_o == s_z:
+#       cnt += 1
+#     return
+#   else:
+#     graph[x] = 1
+#     dfs(x+1)
+#     graph[x] = 0
+#     dfs(x+1)
+# dfs(0)
+
+# if cnt > 0:
+#   print('YES')
+# else:
+#   print('NO')
+
+
+# 바둑이 승차
+# c, n = map(int, input().split())
+# W = []
+# graph = [0] * (n)
+# m_w = []
+# for _ in range(n):
+#   W.append(int(input()))
+
+# def dfs(x):
+#   sum = 0
+#   if x == n:
+#     for i in range(n):
+#       if graph[i] == 1:
+#         sum += W[i]
+#     if sum <= c:
+#       m_w.append(sum)
+#     return
+#   else:
+#     graph[x] = 1
+#     dfs(x+1)
+#     graph[x] = 0
+#     dfs(x+1)
+# dfs(0)
+
+# print(max(m_w))
+
+
+
+# 중복순열
+m, n = map(int, input().split())
+graph = [0] * n
+cnt = 0
+
+def dfs(x):
+  global cnt
+  if x == n:
+    for i in range(n):
+      print(graph[i], end=' ')
+    print()
+    cnt += 1
+  else:
+    for i in range(1, m+1):
+      graph[x] = i
+      dfs(x+1)
+dfs(0)
+print(cnt)
