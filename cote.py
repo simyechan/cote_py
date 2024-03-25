@@ -17,19 +17,34 @@
 
 # 괄호
 
-T = int(input())
+# T = int(input())
 
-for _ in range(T):
-  ls = list((input()))
-  a = []
-  for i in ls:
-    if (i == '('):
-      a.append(i)
-    elif (len(a) > 0 and a[-1] == '('):
-      a.pop()
-    else:
-      a.append(i)
-  if (len(a) == 0):
-    print('YES')
-  else:
-    print('NO')
+# for _ in range(T):
+#   ls = list((input()))
+#   a = []
+#   for i in ls:
+#     if (i == '('):
+#       a.append(i)
+#     elif (len(a) > 0 and a[-1] == '('):
+#       a.pop()
+#     else:
+#       a.append(i)
+#   if (len(a) == 0):
+#     print('YES')
+#   else:
+#     print('NO')
+
+
+
+# 카드
+n = int(input())
+ls = []
+
+for i in range(1, n+1):
+  ls.append(i)
+
+while len(ls) > 1:
+  ls.pop(0)
+  ls.append(ls.pop(0))
+
+print(ls)
