@@ -186,20 +186,93 @@
 
 
 # 중복순열
-m, n = map(int, input().split())
-graph = [0] * n
-cnt = 0
+# m, n = map(int, input().split())
+# graph = [0] * n
+# cnt = 0
 
+# def dfs(x):
+#   global cnt
+#   if x == n:
+#     for i in range(n):
+#       print(graph[i], end=' ')
+#     print()
+#     cnt += 1
+#   else:
+#     for i in range(1, m+1):
+#       graph[x] = i
+#       dfs(x+1)
+# dfs(0)
+# print(cnt)
+
+
+#동전교환
+# n = int(input())
+# dong_ty = sorted(map(int, input().split()), reverse=True)
+# m = int(input())
+# r = 0
+
+# for i in dong_ty:
+#   r += m // int(i)
+#   m = m % int(i)
+
+# print(r)
+
+
+# 순열 구하기
+# N, M = map(int, input().split())
+
+# graph = [0] * N
+# v = [False] * (N + 1)
+# cnt = 0
+
+# def dfs(x):
+#   global cnt
+#   if x == M:
+#     for i in range(M):
+#       print(graph[i], end=' ')
+#     print()
+#     cnt += 1
+#   else:
+#     for i in range(1, N + 1):
+#       if not v[i]:
+#         v[i] = True
+#         graph[x] = i
+#         dfs(x+1)
+#         v[i] = False
+# dfs(0)
+# print(cnt)
+
+
+# 수열 추측하기
+# ls = []
+# N, F = map(int, input().split())
+# for i in range(1, N + 1):
+#   ls.append(i)
+
+# print(ls)
+
+
+# 조합 구하기
+N, M = map(int, input().split())
+graph = [0] * N
+v = [0] * (N + 1)
+a = 0
+cnt = 0
 def dfs(x):
-  global cnt
-  if x == n:
-    for i in range(n):
+  global cnt, a
+  if x == M:
+    for i in range(M):
       print(graph[i], end=' ')
     print()
     cnt += 1
   else:
-    for i in range(1, m+1):
-      graph[x] = i
-      dfs(x+1)
+    for i in range(1, N + 1):
+      if not v[i]:
+        v[i] = True
+        graph[x] = i
+        dfs(x+1)
+        if a < i:
+          a += 1
+          v[i] = False
 dfs(0)
 print(cnt)
